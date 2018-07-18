@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app02.dao.extend.AnswerVMMapper">
+  
+  <select id="findAllAnswerVM"  resultMap="AnswerVMResultMap">
+  	select * from poll_answer
+  </select>
+  
+  <resultMap type="com.briup.app02.vm.AnswerVM" id="AnswerVMResultMap">
+	<id column="id" property="id"/>
+  	<result column="selection" property="selection"/>
+  	<result column="checks" property="check"/> 
+  	<result column="content" property="content"/> 
+  	<association column="survey_id" property="survey" select="com.briup.app02.dao.PollMapper.selectSurveyById"></association>  	
+  </resultMap>
+
+  </mapper>

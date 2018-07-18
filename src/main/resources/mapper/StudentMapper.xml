@@ -30,4 +30,6 @@
   <update id="update" parameterType="com.briup.app02.bean.Student">
   	update student set name = #{name}, age =#{age} where id = #{id}
   </update>
+  
+
 </mapper>

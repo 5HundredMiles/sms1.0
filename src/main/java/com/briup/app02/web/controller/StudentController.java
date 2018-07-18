@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.app02.bean.Course;
+import com.briup.app02.bean.Course1;
 import com.briup.app02.bean.Student;
-import com.briup.app02.dao.StudentMapper;
 import com.briup.app02.service.IStudentService;
 import com.briup.app02.util.MsgResponse;
 
+import springfox.documentation.annotations.ApiIgnore;
+
+@ApiIgnore
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -46,7 +48,7 @@ public class StudentController {
 		}
 	}
 	@GetMapping("findAllCourse")
-	public List<Course> findAllCourse(){
+	public List<Course1> findAllCourse(){
 		try {
 			return studentService.findAllCourse();
 		} catch (Exception e) {
@@ -55,7 +57,7 @@ public class StudentController {
 		}
 	}
 	@GetMapping("findCourseByCnum")
-	public Course findCourseByCnum(Integer num) {
+	public Course1 findCourseByCnum(Integer num) {
 		try {
 			return studentService.findCourseByCnum(num);
 		} catch (Exception e) {
@@ -92,4 +94,6 @@ public class StudentController {
 			return e.getMessage();
 		}
 	}
+	
+	
 }

@@ -1,10 +1,14 @@
-package com.briup.app02.bean;
+package com.briup.app02.vm;
 
-public class Course {
+import com.briup.app02.bean.Grade;
+import com.briup.app02.bean.User;
+
+public class ClazzVM {
 	private Long id;
 	private String name;
 	private String description;
-	private String period;
+	private Grade grade;
+	private User user;
 	public Long getId() {
 		return id;
 	}
@@ -23,10 +27,16 @@ public class Course {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getPeriod() {
-		return period;
+	public Grade getGrade() {
+		return grade;
 	}
-	public void setPeriod(String period) {
-		this.period = period;
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

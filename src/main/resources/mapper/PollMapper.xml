@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app02.dao.PollMapper">
+  
+  <!-- SelectAll -->
+  <select id="selectSchool"  resultType="com.briup.app02.bean.School">
+  	select * from poll_school
+  </select>
+  
+  <select id="selectAllGrade"  resultType="com.briup.app02.bean.Grade">
+  	select * from poll_grade
+  </select>
+  
+  <select id="selectAllClass"  resultType="com.briup.app02.bean.Clazz">
+  	select * from poll_clazz
+  </select>
+  
+  <select id="selectAllUser"  resultType="com.briup.app02.bean.User">
+  	select * from poll_user
+  </select>
+  
+  <select id="selectAllCourse"  resultType="com.briup.app02.bean.Course">
+  	select * from poll_course
+  </select>
+  
+   <select id="selectAllOption"  resultType="com.briup.app02.bean.Option">
+  	select * from poll_option
+  </select>
+  
+   <select id="selectAllQuestion"  resultType="com.briup.app02.bean.Question">
+  	select * from poll_question
+  </select>
+  
+  <select id="selectAllQq"  resultType="com.briup.app02.bean.Qq">
+  	select * from poll_qq
+  </select>
+  
+  <select id="selectAllQuestionNaire"  resultType="com.briup.app02.bean.Questionnaire">
+  	select * from poll_questionnaire
+  </select>
+  
+  <select id="selectAllSurvey"  resultType="com.briup.app02.bean.Survey">
+  	select * from poll_survey
+  </select>
+  
+  <select id="selectAllAnswer"  resultType="com.briup.app02.bean.Answer">
+  	select * from poll_answer
+  </select>
+  
+  
+  <!-- SelectAll -->
+   
+  <!-- Select By --> 
+  <select id="selectClassById"  parameterType="Long" resultType="com.briup.app02.bean.Clazz">
+  	select * from poll_clazz where id = #{id}
+  </select>
+  
+  <select id="selectUserById"  parameterType="Long" resultType="com.briup.app02.bean.User">
+  	select * from poll_user where id = #{id}
+  </select>
+  
+  <select id="selectCourseById"  parameterType="Long" resultType="com.briup.app02.bean.Course">
+  	select * from poll_course where id = #{id}
+  </select>
+  
+   <select id="selectGradeById"  parameterType="Long" resultType="com.briup.app02.bean.Grade">
+  	select * from poll_grade where id = #{id}
+  </select>
+  
+  <select id="selectQuestionById"  parameterType="Long" resultType="com.briup.app02.bean.Question">
+  	select * from poll_question where id = #{id}
+  </select>
+  
+  <select id="selectQuestionnaireById"  parameterType="Long" resultType="com.briup.app02.bean.Questionnaire">
+  	select * from poll_questionnaire where id = #{id}
+  </select>
+  
+  <select id="selectSurveyById" parameterType="Long" resultType="com.briup.app02.bean.Survey">
+  	select * from poll_survey where id = #{id}
+  </select>
+  
+  <select id="findByQuestionId" parameterType="Long" resultType="com.briup.app02.bean.Option">
+  	select * from poll_option where question_id = #{id}
+   </select>
+  <!-- Select By -->
+  
+  <!-- Insert -->
+  <insert id="insertGrade" parameterType="com.briup.app02.bean.Grade">
+  	insert into poll_grade values(null,#{name},#{description})
+  </insert>
+  
+  <insert id="insertClass" parameterType="com.briup.app02.bean.Clazz">
+  	insert into poll_clazz values(null,#{name},#{description},#{grade_id},#{user_id})
+  </insert>
+  
+  <insert id="insertUser" parameterType="com.briup.app02.bean.User">
+  	insert into poll_user values(null,#{name},#{gender},#{birth},#{hiredate})
+  </insert>
+  
+  <insert id="insertCourse" parameterType="com.briup.app02.bean.Course">
+  	insert into poll_course values(null,#{name},#{description},#{period})
+  </insert>
+  
+  <insert id="insertSchool" parameterType="com.briup.app02.bean.School">
+  	insert into poll_school  values(null,#{name},#{description},#{address},#{telephone},#{copyright})
+  </insert>
+  
+   <insert id="insertOption" parameterType="com.briup.app02.bean.Option">
+  	insert into poll_option values(null,#{label},#{content},#{score},#{question_id})
+  </insert>
+  
+   <insert id="insertQuestion" parameterType="com.briup.app02.bean.Question">
+  	insert into poll_question values(null,#{name},#{questiontype})
+  </insert>
+  
+   <insert id="insertQq" parameterType="com.briup.app02.bean.Qq">
+  	insert into poll_school values(null,#{question_id},#{questionnaire_id})
+  </insert>
+  
+  <insert id="insertQuestionNaire" parameterType="com.briup.app02.bean.Questionnaire">
+  	insert into poll_questionnaire values(null,#{name},#{description},#{createDate})
+  </insert>
+  
+  <insert id="insertSurvey" parameterType="com.briup.app02.bean.Survey">
+  	insert into poll_survey values(null,#{state},#{average},#{surveyDate},#{questionnaire_id},#{user_id},#{clazz_id},#{course_id})
+  </insert>
+  
+  <insert id="insertAnswer" parameterType="com.briup.app02.bean.Answer">
+  	insert into poll_answer values(null,#{selection},#{check},#{content},#{survey_id})
+  </insert>
+  
+  <!-- Insert -->
+  
+  <!-- Delete -->
+  <delete id="deleteSchoolById" parameterType="Long">
+  	delete from poll_school where id = #{id}
+  </delete>
+  
+   <delete id="deleteGradeById" parameterType="Long">
+  	delete from poll_grade where id = #{id}
+  </delete>
+  
+   <delete id="deleteClassById" parameterType="Long">
+  	delete from poll_clazz where id = #{id}
+  </delete>
+  
+   <delete id="deleteUserById" parameterType="Long">
+  	delete from poll_user where id = #{id}
+  </delete>
+  
+   <delete id="deleteCourseById" parameterType="Long">
+  	delete from poll_course where id = #{id}
+  </delete>
+  
+   <delete id="deleteOptionById" parameterType="Long">
+  	delete from poll_option where id = #{id}
+  </delete>
+  
+  <delete id="deleteQuestionById" parameterType="Long">
+  	delete from poll_question where id = #{id}
+  </delete>
+  
+  <delete id="deleteQqById" parameterType="Long">
+  	delete from poll_qq where id = #{id}
+  </delete>
+  
+  <delete id="deleteQuestionNaireById" parameterType="Long">
+  	delete from poll_questionnaire where id = #{id}
+  </delete>
+  
+  <delete id="deleteSurveyById" parameterType="Long">
+  	delete from poll_survey where id = #{id}
+  </delete>
+  
+  <delete id="deleteAnswerById" parameterType="Long">
+  	delete from poll_answer where id = #{id}
+  </delete>
+  <!-- Delete -->
+  
+  <!-- Update -->
+  <update id="UpdateSchoolById" parameterType="com.briup.app02.bean.School">
+  	update poll_school 
+  	set name = #{name}, description = #{description},address=#{address},telephone=#{telephone},copyright=#{copyright}
+  	where id = #{id} 
+  </update>
+  
+    <update id="UpdateGradeById" parameterType="com.briup.app02.bean.Grade">
+  	update poll_grade 
+  	set name = #{name}, description = #{description}
+  	where id = #{id} 
+  </update>
+  
+    <update id="UpdateClassById" parameterType="com.briup.app02.bean.Clazz">
+  	update poll_clazz
+  	set name = #{name}, description = #{description},grade_id=#{grade_id},user_id=#{user_id}
+  	where id = #{id} 
+  </update>
+  
+   <update id="UpdateUserById" parameterType="com.briup.app02.bean.User">
+  	update poll_user
+  	set name = #{name}, gender = #{gender},birth=#{birth},hiredate=#{hiredate}
+  	where id = #{id} 
+  </update>
+  
+   <update id="UpdateCourseById" parameterType="com.briup.app02.bean.Course">
+  	update poll_course
+  	set name = #{name}, description = #{description} , period = #{period}
+  	where id = #{id} 
+  </update>
+  
+   <update id="UpdateOptionById" parameterType="com.briup.app02.bean.Option">
+  	update poll_option 
+  	set lable = #{label}, content = #{content},score=#{score},question_id=#{question_id}
+  	where id = #{id} 
+  </update>
+  
+   <update id="UpdateQuestionById" parameterType="com.briup.app02.bean.Question">
+  	update poll_question 
+  	set name = #{name}, questiontype = #{questiontype}
+  	where id = #{id} 
+  </update>
+  
+  <update id="UpdateQqById" parameterType="com.briup.app02.bean.Qq">
+  	update poll_qq 
+  	set question_id = #{question_id}, questionnaire_id = #{questionnaire_id}
+  	where id = #{id} 
+  </update>
+  
+  <update id="UpdateQuestionNaireById" parameterType="com.briup.app02.bean.Questionnaire">
+  	update poll_questionnaire 
+  	set name = #{name}, description = #{description},createDate=#{createDate}
+  	where id = #{id} 
+  </update>
+  
+   <update id="UpdateSurveyById" parameterType="com.briup.app02.bean.Survey">
+  	update poll_survey
+  	set state=#{state}, average=#{average},  surveyDate=#{surveyDate}, questionnaire_id = #{questionnaire_id},  user_id=#{user_id}, clazz_id=#{clazz_id},  course_id=#{course_id}
+  	where id = #{id} 
+  </update>
+  
+   <update id="UpdateAnswerById" parameterType="com.briup.app02.bean.Answer">
+  	update poll_answer
+  	set selection=#{selection}, checks=#{check},  content=#{content}, survey_id = #{survey_id}
+  	where id = #{id} 
+  </update>
+  <!-- Update -->
+</mapper>

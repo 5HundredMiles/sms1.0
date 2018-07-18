@@ -5,8 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.briup.app02.bean.Clazz;
 import com.briup.app02.bean.Course;
+import com.briup.app02.bean.Course1;
+import com.briup.app02.bean.Grade;
+import com.briup.app02.bean.School;
 import com.briup.app02.bean.Student;
+import com.briup.app02.bean.User;
 import com.briup.app02.dao.StudentMapper;
 import com.briup.app02.service.IStudentService;
 
@@ -18,7 +23,6 @@ public class StudentServiceImpl implements IStudentService {
 	
 	@Override
 	public List<Student> findAll() throws Exception {
-		//调用studentMapper查询所有学生
 	    List<Student>	list =  studentMapper.findAll();
 		return list;
 	}
@@ -28,29 +32,25 @@ public class StudentServiceImpl implements IStudentService {
 	}
 	
 	@Override
-	public List<Course> findAllCourse() throws Exception {
-		// TODO 自动生成的方法存根
+	public List<Course1> findAllCourse() throws Exception {
 		return studentMapper.findAllCourse();
 	}
 	@Override
-	public Course findCourseByCnum(Integer num) throws Exception {
-		// TODO 自动生成的方法存根
+	public Course1 findCourseByCnum(Integer num) throws Exception {
 		return studentMapper.findCourseByCnum(num);
 	}
 	@Override
 	public void InsertStudent(Student student) throws Exception {
-		// TODO 自动生成的方法存根
 		 studentMapper.InsertStudent(student);
 	}
 	@Override
 	public void save(Student student) throws Exception {
-		// TODO 自动生成的方法存根
 		studentMapper.save(student);
 		
 	}
 	@Override
 	public void update(Student student) throws Exception {
-		// TODO 自动生成的方法存根
 		studentMapper.update(student);
 	}
+
 }
